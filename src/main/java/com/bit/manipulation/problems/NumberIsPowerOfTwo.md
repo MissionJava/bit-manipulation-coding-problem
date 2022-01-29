@@ -1,3 +1,15 @@
+# To run this app using docker
+```
+    $ docker build -t number-is-power-of-two .
+    $ docker run -it --rm --name number-is-power-of-two
+```
+# OR compile app inside docker container but run the app outside docker container
+
+There may be an occasion where you want to just compile your app, but it is not 
+appropriate to run your app inside container, then you can use below docker command
+```
+    $ docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp openjdk:11 javac NumberIsPowerOfTwo.java
+```
 # How to check if a given number is a power of 2 ?
 Consider a number N and you need to find if N is a power of 2. Simple solution to this problem is to repeated divide N by 2 if N is even. If we end up with a 1 then N is power of 2, otherwise not. There are a special case also. If N = 0 then it is not a power of 2. Let’s code it.
 
